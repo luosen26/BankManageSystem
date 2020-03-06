@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cqipc.edu.luosen.dao.AccountDao">
+	<select id="findAll" resultType="Account">
+		select*from account
+	</select>
+	<select id="findById" resultType="Account">
+		select*from account where a_id=#{a_id}
+	</select>
+	<select id="findByCid" resultType="Account">
+		select*from account where c_id=#{c_id}
+	</select>
+	<insert id="create">
+		insert into account values (null,#{a_type},#{a_balance},#{c_id})
+	</insert>
+	<update id="modify">
+		update account set a_type=#{a_type},a_balance=#{a_balance},c_id=#{c_id} 
+		where a_id=#{a_id}
+	</update>
+	<update id="modifyBalanceByAid">
+		update account set a_balance=#{a_balance} 
+		where a_id=#{a_id}
+	</update>
+	<delete id="remove">
+		delete from account where a_id=#{a_id}
+	</delete>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cqipc.edu.luosen.dao.BankDao">
+	<select id="findAll" resultType="Bank">
+		select *from bank
+	</select>
+	<select id="findById" resultType="String">
+		select b_name from bank where b_id=#{b_id}
+	</select>
+	<select id="findByName" resultType="Bank">
+		select *from bank where b_name=#{b_name}
+	</select>
+	<insert id="create">
+		insert into bank values(null,#{b_name})
+	</insert>
+	<update id="modify">
+		update bank set b_name=#{b_name} where b_id=#{b_id}
+	</update>
+	<delete id="remove">
+		delete from bank where b_id=#{b_id}
+	</delete>
+</mapper>

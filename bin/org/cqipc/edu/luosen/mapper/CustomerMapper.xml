@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.cqipc.edu.luosen.dao.CustomerDao">
+	<select id="findAll" resultType="Customer">
+		select*from  customer
+	</select>
+	<select id="findById" resultType="String">
+		select c_name from  customer where c_id=#{c_id}
+	</select>
+	<select id="findByName" resultType="Customer">
+		select *from  customer where c_name=#{c_name}
+	</select>
+	<select id="findByBid" resultType="Customer">
+		select*from  customer where b_id=#{b_id}
+	</select>
+	<insert id="create">
+		insert into  customer values (null,#{c_name},#{c_tel},#{c_addr},#{c_createDate},#{b_id})
+	</insert>
+	<update id="modify">
+		update  customer set c_name=#{c_name},c_tel=#{c_tel},c_addr=#{c_addr},
+		c_createDate=#{c_createDate},b_id=#{b_id} where c_id=#{c_id}
+	</update>
+	<delete id="remove">
+		delete from  customer where c_id=#{c_id}
+	</delete>
+</mapper>
